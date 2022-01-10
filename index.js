@@ -302,6 +302,7 @@ async function run() {
         app.post('/orderCollection', async (req, res) => {
             const order = req.body;
             order.status = 'pending';
+            order.paymentStatus = "unpaid"
             console.log(order)
             const result = await orderCollection.insertOne(order);
             console.log(`A document was inserted with the _id: ${result.insertedId}`);
